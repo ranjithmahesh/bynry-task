@@ -11,19 +11,19 @@ import GoogleMap from "./GoogleMap";
 function CardMap({ data }) {
   console.log(data);
   return (
-    <div className="flex ">
-      <div className="flex-1 p-5   bg-transparent bg-opacity-25 bg-slate-400 ">
+    <div className="flex lg:flex-row flex-col ">
+      <div className="flex-1 lg:p-5   bg-transparent bg-opacity-25 bg-slate-400 ">
         <div className="flex gap-5 ">
           <div>
             <img
-              className="object-cover overflow-hidden w-[150px] aspect-square"
+              className="object-cover overflow-hidden w-[150px] aspect-square  hidden lg:block"
               src={data.img}
               alt=""
             />
           </div>
-          <div className="w-full px-3">
-            <h1 className="text-3xl font-semibold">{data.name}</h1>
-            <div className="flex gap-2 justify-between">
+          <div className="w-full lg:px-3 ">
+            <h1 className="lg:text-3xl text-xl font-semibold">{data.name}</h1>
+            <div className="flex gap-2 lg:justify-between flex-col lg:flex-row">
               <p className="text-sm">{data.occupation}</p>
               <p className="text-sm flex items-center gap-1">
                 <RxPerson />
@@ -31,7 +31,7 @@ function CardMap({ data }) {
               </p>
             </div>
 
-            <div className="flex justify-between mt-5 items-center  ">
+            <div className="flex justify-between mt-5  lg:justify-between flex-col lg:flex-row gap-2 lg:gap-0  ">
               <div className="flex  items-center">
                 <CiLocationOn className="font-bold " /> {data.city}
               </div>

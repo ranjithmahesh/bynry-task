@@ -4,7 +4,7 @@ export const NavMenu = [
   {
     name: "Dashboard",
     icon: <MdOutlineDashboard className="text-2xl" />,
-    Link: "/dashbord",
+    Link: "/dashboard",
   },
   {
     name: "Usres",

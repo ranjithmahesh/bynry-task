@@ -1,14 +1,17 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import App from "./App";
 import "./index.css";
+import { IsAdminProvider } from "./isAdminContext";
 import { NavBarProvider } from "./reduser";
 
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(
+ReactDOM.render(
   <React.StrictMode>
     <NavBarProvider>
-      <App />
+      <IsAdminProvider>
+        <App />
+      </IsAdminProvider>
     </NavBarProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
+  document.getElementById("root")
 );
