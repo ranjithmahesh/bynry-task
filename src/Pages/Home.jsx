@@ -1,11 +1,11 @@
-import { MdDeleteOutline } from "react-icons/md";
-import { IoIosSearch } from "react-icons/io";
 import React, { Fragment, useState } from "react";
-import NavBar from "../components/NavBar";
-import { UserData } from "../lib/data";
-import Modal from "../components/Modal";
+import { IoIosSearch, IoMdMore } from "react-icons/io";
 import CardMap from "../components/CardMap";
+import Modal from "../components/Modal";
+import NavBar from "../components/NavBar";
 import { useIsAdminBarContext } from "../isAdminContext";
+import { UserData } from "../lib/data";
+import { MdDeleteOutline } from "react-icons/md";
 
 function Home() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -14,6 +14,7 @@ function Home() {
   const [searchResults, setSearchResults] = useState(UserData);
   const [genderFilter, setGenderFilter] = useState("all");
   const [selectedUser, setSelectedUser] = useState(null);
+  const [isHovered, setIsHovered] = useState(false);
 
   const [data, setData] = useState({
     email: "",
@@ -72,6 +73,13 @@ function Home() {
     setShowModal1(false);
   };
 
+  const handleDelete = (data) => {
+    // Filter out the user with the given id from searchResults
+    setSearchResults((prevSearchResults) =>
+      prevSearchResults.filter((user) => user.name !== data.name)
+    );
+  };
+
   return (
     <Fragment>
       <div className="w-screen h-screen p-4 bg-[#f4f5f6] ">
@@ -124,11 +132,11 @@ function Home() {
               <h1 className=" flex-1 mr-[15px] ">Adress</h1>
             </div>
 
-            <div className="h-[350px] overflow-y-scroll scrollbar-hidden">
+            <div className="h-[350px] overflow-y-scroll scrollbar-hidden ">
               {searchResults.map((item, i) => (
                 <div
                   key={i}
-                  className={`flex p-2 rounded-md items-center mt-1 ${
+                  className={`flex p-2 rounded-md items-center mt-1  ${
                     i % 2 !== 0 ? "bg-[#f8f8f8]" : "bg-white"
                   }`}
                 >
@@ -143,8 +151,9 @@ function Home() {
                   <h1 className="flex-1 hidden lg:block">{item.gender}</h1>
                   <h1 className="flex-1 hidden lg:block">{item.email}</h1>
                   <h1 className="flex-1 hidden lg:block">{item.mobile}</h1>
-                  <div className="flex-1 flex justify-between ">
+                  <div className="flex-1 flex justify-between  ">
                     <h1>{item.city}</h1>
+
                     <button
                       className="hover:underline text-blue-500"
                       onClick={() => {
@@ -154,8 +163,25 @@ function Home() {
                     >
                       View
                     </button>
+
+                    {/* <MdDeleteOutline className="w-6 bg-red-500 absolute ring-0" /> */}
                   </div>
-                  {/* <h1 className="pr-2">in Map</h1> */}
+                  <div className="relative group">
+                    <IoMdMore className="text-2xl cursor-pointer" />
+                    <div className="absolute hidden group-hover:block right-0 top-5 p-2 bg-white border border-gray-200 rounded shadow">
+                      <button
+                        className="text-red-500 hover:text-red-700 z-10"
+                        onClick={() => {
+                          handleDelete(item);
+                        }}
+                      >
+                        <div className="flex items-center">
+                          <MdDeleteOutline />
+                          <span className="ml-1">Delete</span>
+                        </div>
+                      </button>
+                    </div>
+                  </div>
                 </div>
               ))}
             </div>
