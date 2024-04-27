@@ -33,8 +33,8 @@ function CardMap({ data }) {
 
             <div className="flex justify-between mt-5  lg:justify-between flex-col lg:flex-row gap-2 lg:gap-0  ">
               <div className="flex  items-center">
-                <CiLocationOn className="font-bold " /> {data.city} ??Los
-                Angeles
+                <CiLocationOn className="font-bold " />{" "}
+                {data.city ?? "Los  Angeles"}
               </div>
               <div className="flex gap-2 items-center">
                 <FiPhone />

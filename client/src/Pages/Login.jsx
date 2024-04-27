@@ -96,7 +96,7 @@ function Login() {
   };
 
   return (
-    <div className="bg-[#131a2c] w-screen h-screen flex flex-row p-14 lg:px-44 rounded-lg">
+    <div className="bg-white w-screen h-screen flex flex-row p-14 lg:px-44 rounded-lg">
       <div className="bg-[#2d3250] flex-1 rounded-l-3xl p-3">
         <div className="flex gap-5 text-white">
           <Link to={"/"}>
@@ -166,7 +166,7 @@ function Login() {
               </label>
             </div>
             <h1 className="text-red-500">{error}</h1>
-            <div className="flex justify-between mt-2 text-white items-center">
+            <div className="  justify-between mt-2 text-white items-center hidden lg:flex">
               <div>
                 <input
                   id="hi"
