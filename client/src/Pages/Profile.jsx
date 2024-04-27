@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import NavBar from "../components/NavBar";
 
 function Profile() {
   const [isEditView, setIsEditView] = useState(false);
@@ -8,6 +10,7 @@ function Profile() {
   const [mobile, setMobile] = useState("");
   const [message, setMessage] = useState("");
 
+  const router = useNavigate();
   useEffect(() => {
     const fetchUser = async () => {
       const token = localStorage.getItem("token");
@@ -83,11 +86,11 @@ function Profile() {
 
   const handleLogOut = () => {
     localStorage.clear();
-    window.location.href = "/auth/login";
+    router("/");
   };
 
   return (
-    <>
+    <NavBar>
       {isEditView ? (
         <div className="bg-[#f4f5f6] h-screen w-screen flex justify-center items-center ">
           <div className="bg-slate-300 m-10 flex flex-col items-center rounded-xl p-5">
@@ -131,7 +134,7 @@ function Profile() {
           </div>
         </div>
       ) : (
-        <div className="bg-slate-600 h-screen w-screen flex justify-center items-center">
+        <div className="bg-[#f4f5f6] h-screen w-screen flex justify-center items-center">
           <div className="bg-slate-300 m-10 flex flex-col items-center rounded-xl p-5">
             <div className="rounded-full w-24 h-24 overflow-hidden">
               <img
@@ -176,7 +179,7 @@ function Profile() {
           </div>
         </div>
       )}
-    </>
+    </NavBar>
   );
 }
 

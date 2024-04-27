@@ -1,5 +1,5 @@
 import { FiLogOut } from "react-icons/fi";
-import { IoPersonCircleOutline } from "react-icons/io5";
+import { IoAnalyticsOutline, IoPersonCircleOutline } from "react-icons/io5";
 import { MdOutlineDashboard } from "react-icons/md";
 export const NavMenu = [
   {
@@ -9,7 +9,7 @@ export const NavMenu = [
   },
   {
     name: "Usres",
-    icon: <IoPersonCircleOutline className="text-2xl" />,
+    icon: <IoAnalyticsOutline className="text-2xl" />,
     Link: "/user",
   },
 ];
@@ -21,8 +21,13 @@ export const MobileNavMenu = [
   },
   {
     name: "Usres",
-    icon: <IoPersonCircleOutline className="text-2xl" />,
+    icon: <IoAnalyticsOutline className="text-2xl" />,
     Link: "/user",
+  },
+  {
+    name: "Profile",
+    icon: <IoPersonCircleOutline className="text-2xl" />,
+    Link: "/profile",
   },
   {
     name: "Logout",
