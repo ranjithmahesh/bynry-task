@@ -12,7 +12,7 @@ function Modal({ isVisible, onClose, children }) {
       id="wrapper"
       onClick={handleClose}
     >
-      <div className="lg:w-[900px]  mx-5 flex justify-between flex-col mt-[101px]">
+      <div className="lg:w-[900px] max-h-[800px] mx-5 flex justify-between flex-col     ">
         <button
           className="place-self-end text-white text-xl font-bold"
           onClick={() => onClose()}

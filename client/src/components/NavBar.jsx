@@ -1,19 +1,21 @@
 import axios from "axios";
-import { IoMdClose } from "react-icons/io";
+import { CgProfile } from "react-icons/cg";
 import { GiHamburgerMenu } from "react-icons/gi";
 import {
   IoIosArrowDropleftCircle,
   IoIosArrowDroprightCircle,
+  IoMdClose,
 } from "react-icons/io";
 
 import React, { useEffect, useState } from "react";
+import { FiLogOut } from "react-icons/fi";
 import { GoBell } from "react-icons/go";
 import { IoSettingsOutline } from "react-icons/io5";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { NavMenu } from "../lib/data";
+import { useIsAdminBarContext } from "../isAdminContext";
+import { MobileNavMenu, NavMenu } from "../lib/data";
 import logo from "../lib/logo.svg";
 import { useNavBarContext } from "../reduser";
-import { useIsAdminBarContext } from "../isAdminContext";
 
 function NavBar({ children }) {
   const { isNavBarShown, setIsNavBarShown } = useNavBarContext();
@@ -49,6 +51,10 @@ function NavBar({ children }) {
     fetchUser();
   }, []);
 
+  const handleLogout = () => {
+    localStorage.clear();
+    router("/");
+  };
   return (
     <div className=" ">
       <div className="h-[50px] bg-white rounded-t-md flex items-center px-2 justify-between">
@@ -58,7 +64,31 @@ function NavBar({ children }) {
         </div>
         <div className="flex gap-5 text-xl items-center ">
           <GoBell />
-          <IoSettingsOutline />
+          <div className="relative group">
+            <IoSettingsOutline className=" cursor-pointer" />
+            <div className="absolute hidden group-hover:block -right-8 top-5 p-2 bg-white border border-gray-200 rounded shadow">
+              <button
+                className="text-[#378bba] hover:text-[#61c0f3] z-10"
+                // onClick={() => {
+                //   handleDelete(item);
+                // }}
+              >
+                <div className="flex items-center text-sm">
+                  <CgProfile />
+                  <span className="ml-1">Profile</span>
+                </div>
+              </button>
+              <button
+                className="text-[#378bba] hover:text-[#61c0f3] z-10"
+                onClick={handleLogout}
+              >
+                <div className="flex items-center text-sm">
+                  <FiLogOut />
+                  <span className="ml-1">Logout</span>
+                </div>
+              </button>
+            </div>
+          </div>
           <div className="rounded-full ">
             <img
               alt="kjh"
@@ -84,7 +114,7 @@ function NavBar({ children }) {
           <div className="px-3  lg:px-0 bg-transparent bg-white bg-opacity-35 z-10">
             <div className="flex flex-col justify-between  mx-auto">
               <div>
-                {NavMenu.map((item, i) => (
+                {MobileNavMenu.map((item, i) => (
                   <Link
                     to={item.Link}
                     className={`ml-2 items-center text-lg font-semibold text-[#378bba] mt-2 my-6 cursor-pointer  flex -mr-[100px]   

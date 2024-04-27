@@ -14,13 +14,12 @@ function Home() {
   const [searchResults, setSearchResults] = useState(UserData);
   const [genderFilter, setGenderFilter] = useState("all");
   const [selectedUser, setSelectedUser] = useState(null);
-  const [isHovered, setIsHovered] = useState(false);
 
   const [data, setData] = useState({
     email: "",
     name: "",
     mobile: "",
-    address: "",
+    city: "",
     gender: "",
   });
 
@@ -192,7 +191,7 @@ function Home() {
         <CardMap data={selectedUser} />
       </Modal>
       <Modal isVisible={showModal1} onClose={() => setShowModal1(false)}>
-        <div className="p-5 w-fit">
+        <div className="p-5 w-fit mt-11 ">
           <h1 className="text-2xl my-5">Create User</h1>
           <div className="flex gap-10">
             <div className="relative mt-5 w-fit ">
@@ -252,16 +251,16 @@ function Home() {
             </div>
             <div className="relative mt-5 w-fit ">
               <input
-                id="address"
-                name="address"
+                id="city"
+                name="city"
                 type="text"
                 onChange={handleChange}
-                value={data.address}
+                value={data.city}
                 placeholder=" "
                 className="peer focus:outline-none placeholder-transparent  border-b-2 border-gray-300 w-full focus:border-[#F9B17A] "
               />
               <label
-                htmlFor="address"
+                htmlFor="city"
                 className="absolute transition-all peer-focus:-top-3.5 peer-focus:text-gray-600 peer-focus:text-sm left-0 -top-3.5 text-sm text-gray-600 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-1 peer-placeholder-shown:text-base"
               >
                 City

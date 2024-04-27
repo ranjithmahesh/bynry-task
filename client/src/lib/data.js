@@ -1,3 +1,5 @@
+import { CgProfile } from "react-icons/cg";
+import { FiLogOut } from "react-icons/fi";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { MdOutlineDashboard } from "react-icons/md";
 export const NavMenu = [
@@ -10,6 +12,23 @@ export const NavMenu = [
     name: "Usres",
     icon: <IoPersonCircleOutline className="text-2xl" />,
     Link: "/user",
+  },
+];
+export const MobileNavMenu = [
+  {
+    name: "Dashboard",
+    icon: <MdOutlineDashboard className="text-2xl" />,
+    Link: "/dashboard",
+  },
+  {
+    name: "Usres",
+    icon: <IoPersonCircleOutline className="text-2xl" />,
+    Link: "/user",
+  },
+  {
+    name: "Logout",
+    icon: <FiLogOut className="text-2xl" />,
+    Link: "/",
   },
 ];
 

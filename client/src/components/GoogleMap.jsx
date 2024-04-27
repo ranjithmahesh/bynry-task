@@ -7,6 +7,9 @@ const containerStyle = {
 };
 
 function MyComponent({ center }) {
+  if (!center) {
+    center = { lat: 33.4484, lng: -112.074 };
+  }
   const { isLoaded } = useJsApiLoader({
     id: "google-map-script",
     googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY, // Correct the environment variable name

@@ -11,7 +11,7 @@ import GoogleMap from "./GoogleMap";
 function CardMap({ data }) {
   console.log(data);
   return (
-    <div className="flex lg:flex-row flex-col ">
+    <div className="flex lg:flex-row flex-col mt-5 overflow-y-scroll">
       <div className="flex-1 lg:p-5   bg-transparent bg-opacity-25 bg-slate-400 ">
         <div className="flex gap-5 ">
           <div>
@@ -33,7 +33,8 @@ function CardMap({ data }) {
 
             <div className="flex justify-between mt-5  lg:justify-between flex-col lg:flex-row gap-2 lg:gap-0  ">
               <div className="flex  items-center">
-                <CiLocationOn className="font-bold " /> {data.city}
+                <CiLocationOn className="font-bold " /> {data.city} ??Los
+                Angeles
               </div>
               <div className="flex gap-2 items-center">
                 <FiPhone />
@@ -44,19 +45,21 @@ function CardMap({ data }) {
             <div className="flex justify-between mt-5 items-center ">
               <div className="flex gap-1  items-center">
                 <MdOutlineMailOutline />
-                {data.email}
+                {data.email ?? "john_doe@gmail.com"}
               </div>
               <div className="flex gap-2 items-center"></div>
             </div>
             {/* // */}
             <div className="flex gap-2  mt-5">
               <SlGraduation className="mt-1" />
-              {data.education}
+              {data.education ?? "Bachelor's degree in Fine Arts"}
             </div>
-            <div className="flex gap-2  mt-5">
-              <FaRegIdCard className="text-[100px] -mt-[37px] " />
-              <span className="line-clamp-3">{data.description}</span>
-            </div>
+            {data.description && (
+              <div className="flex gap-2  mt-5">
+                <FaRegIdCard className="text-[100px] -mt-[37px] " />
+                <span className="line-clamp-3">{data.description}</span>
+              </div>
+            )}
           </div>
         </div>
       </div>
