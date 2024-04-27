@@ -162,25 +162,26 @@ function Home() {
                     >
                       View
                     </button>
+                  </div>
 
-                    {/* <MdDeleteOutline className="w-6 bg-red-500 absolute ring-0" /> */}
-                  </div>
-                  <div className="relative group">
-                    <IoMdMore className="text-2xl cursor-pointer" />
-                    <div className="absolute hidden group-hover:block right-0 top-5 p-2 bg-white border border-gray-200 rounded shadow">
-                      <button
-                        className="text-red-500 hover:text-red-700 z-10"
-                        onClick={() => {
-                          handleDelete(item);
-                        }}
-                      >
-                        <div className="flex items-center">
-                          <MdDeleteOutline />
-                          <span className="ml-1">Delete</span>
-                        </div>
-                      </button>
+                  {isAdmin && (
+                    <div className="relative group">
+                      <IoMdMore className="text-2xl cursor-pointer" />
+                      <div className="absolute hidden group-hover:block right-0 top-5 p-2 bg-white border border-gray-200 rounded shadow">
+                        <button
+                          className="text-red-500 hover:text-red-700 z-10"
+                          onClick={() => {
+                            handleDelete(item);
+                          }}
+                        >
+                          <div className="flex items-center">
+                            <MdDeleteOutline />
+                            <span className="ml-1">Delete</span>
+                          </div>
+                        </button>
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               ))}
             </div>

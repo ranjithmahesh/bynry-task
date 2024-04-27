@@ -73,7 +73,10 @@ function NavBar({ children }) {
                 //   handleDelete(item);
                 // }}
               >
-                <div className="flex items-center text-sm">
+                <div
+                  className="flex items-center text-sm"
+                  onClick={() => router("/profile")}
+                >
                   <CgProfile />
                   <span className="ml-1">Profile</span>
                 </div>

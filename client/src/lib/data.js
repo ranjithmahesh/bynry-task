@@ -1,4 +1,3 @@
-import { CgProfile } from "react-icons/cg";
 import { FiLogOut } from "react-icons/fi";
 import { IoPersonCircleOutline } from "react-icons/io5";
 import { MdOutlineDashboard } from "react-icons/md";
