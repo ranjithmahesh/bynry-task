@@ -96,14 +96,7 @@ const generatesecrectKey = () => {
   return secrectKey;
 };
 const secrectKey = generatesecrectKey();
-const generateOTP = () => {
-  const otp = otpGenerator.generate(6, {
-    upperCaseAlphabets: false,
-    specialChars: false,
-    alphabets: false, // Exclude lowercase alphabets as well
-  });
-  return otp;
-};
+
 
 // ///
 
@@ -127,9 +120,7 @@ export const login = async (req, res) => {
     }
 
     // Generate and save OTP
-    const OTP = generateOTP();
-
-    user.otp = OTP;
+    
     await user.save();
 
    
@@ -146,20 +137,6 @@ export const login = async (req, res) => {
   }
 };
 
-export const otpVerify = async (req, res) => {
-  try {
-    const { email } = req.query;
-
-    const user = await User.findOne({ email });
-
-    const otp = user.otp;
-
-    res.status(200).json({ otp });
-  } catch (error) {
-    console.error("Error verifying OTP:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
-};
 
 export const UserInfo = async (req, res) => {
   try {
