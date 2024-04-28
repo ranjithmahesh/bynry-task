@@ -107,33 +107,6 @@ const generateOTP = () => {
 
 // ///
 
-const sendOTP = async (email, otp) => {
-  // Create a Nodemailer transporter
-  const transporter = nodemailer.createTransport({
-    // Configure the email service or SMTP details here
-    service: "gmail",
-    auth: {
-      user: "ranjithsm459@gmail.com",
-      pass: "hpakqwyriybyabgv",
-    },
-  });
-
-  // Compose the email message
-  const mailOptions = {
-    from: "Task.com",
-    to: email,
-    subject: "OTP Verification",
-    text: `Your OTP is ${otp}`,
-  };
-
-  // Send the email
-  try {
-    await transporter.sendMail(mailOptions);
-    console.log("OTP Sent to Email");
-  } catch (error) {
-    console.error("Error sending OTP to email:", error);
-  }
-};
 export const login = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -160,7 +133,7 @@ export const login = async (req, res) => {
     await user.save();
 
     // // Send OTP via email
-    // sendOTP(email, OTP);
+    sendOTP(email, OTP);
 
     // Generate a JWT token (uncomment and implement this part)
     const token = jwt.sign({ userId: user.email }, secrectKey);

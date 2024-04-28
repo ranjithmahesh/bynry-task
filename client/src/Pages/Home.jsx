@@ -192,7 +192,7 @@ function Home() {
         <CardMap data={selectedUser} />
       </Modal>
       <Modal isVisible={showModal1} onClose={() => setShowModal1(false)}>
-        <div className="p-5 w-fit mt-11 ">
+        <div className="p-5 w-fit mt-5 ">
           <h1 className="text-2xl my-5">Create User</h1>
           <div className="flex gap-10">
             <div className="relative mt-5 w-fit ">
