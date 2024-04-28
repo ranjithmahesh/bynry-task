@@ -62,7 +62,6 @@ function Register() {
           }
         );
 
-        console.log(res.data);
         toast.success("Verification link sent to your email!");
         router("/");
 

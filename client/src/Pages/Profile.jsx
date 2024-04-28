@@ -51,7 +51,7 @@ function Profile() {
         }
       );
       setMessage("Updated Successfully");
-      console.log(res);
+  
     } catch (error) {
       setMessage("Error updating data, try again");
       console.error("Error updating user:", error);
@@ -77,7 +77,7 @@ function Profile() {
       setMessage("User deleted successfully");
       alert("User deleted successfully");
       localStorage.clear();
-      console.log(res);
+    
     } catch (error) {
       setMessage("Error deleting user, please try again");
       console.error("Error deleting user:", error);

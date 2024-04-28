@@ -23,7 +23,7 @@ function Home() {
     gender: "",
   });
 
-  console.log(data);
+ 
   const { isAdmin, setisAdmin } = useIsAdminBarContext();
   console.log(isAdmin);
   const handleSearch = (event) => {
@@ -77,6 +77,7 @@ function Home() {
     setSearchResults((prevSearchResults) =>
       prevSearchResults.filter((user) => user.name !== data.name)
     );
+  
   };
 
   return (

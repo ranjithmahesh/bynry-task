@@ -9,7 +9,7 @@ import { MdOutlineMailOutline } from "react-icons/md";
 import GoogleMap from "./GoogleMap";
 
 function CardMap({ data }) {
-  console.log(data);
+  
   return (
     <div className="flex lg:flex-row flex-col mt-5 overflow-y-scroll">
       <div className="flex-1 lg:p-5   bg-transparent bg-opacity-25 bg-slate-400 ">

@@ -11,7 +11,6 @@ function Login() {
     password: "",
   });
 
-  console.log(data);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -45,7 +44,6 @@ function Login() {
     handleValidation();
   };
 
-  console.log(process.env.REACT_APP_BASE_URL);
 
   const onSubmit = async () => {
     if (handleValidation()) {
