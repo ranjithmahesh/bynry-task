@@ -132,8 +132,7 @@ export const login = async (req, res) => {
     user.otp = OTP;
     await user.save();
 
-    // // Send OTP via email
-    sendOTP(email, OTP);
+   
 
     // Generate a JWT token (uncomment and implement this part)
     const token = jwt.sign({ userId: user.email }, secrectKey);
