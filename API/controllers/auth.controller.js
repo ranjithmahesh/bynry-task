@@ -20,7 +20,7 @@ const sendVerificationEmail = async (email, verificationToken, name) => {
     from: "amazon.com",
     to: email,
     subject: "Email Verification",
-    text: `Please click the following link to verify your email https://innobyte-services-internship.onrender.com/auth/verify/${verificationToken} You email ${name}`,
+    text: `Please click the following link to verify your email http://localhost:9000/auth/verify/${verificationToken} You email ${name}`,
   };
 
   // Send the email
@@ -97,8 +97,8 @@ const generatesecrectKey = () => {
 };
 const secrectKey = generatesecrectKey();
 
-
 // ///
+
 
 export const login = async (req, res) => {
   try {
@@ -119,11 +119,10 @@ export const login = async (req, res) => {
       return res.status(401).json({ message: "Invalid password" });
     }
 
-    // Generate and save OTP
-    
+
     await user.save();
 
-   
+    
 
     // Generate a JWT token (uncomment and implement this part)
     const token = jwt.sign({ userId: user.email }, secrectKey);
@@ -136,6 +135,7 @@ export const login = async (req, res) => {
     res.status(500).json({ message: "Login Failed" });
   }
 };
+
 
 
 export const UserInfo = async (req, res) => {
