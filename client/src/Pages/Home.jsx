@@ -192,7 +192,7 @@ function Home() {
         <CardMap data={selectedUser} />
       </Modal>
       <Modal isVisible={showModal1} onClose={() => setShowModal1(false)}>
-        <div className="p-5 w-fit mt-5 ">
+        <div className="p-5 w-full  mt-5 ">
           <h1 className="text-2xl my-5">Create User</h1>
           <div className="flex gap-10">
             <div className="relative mt-5 w-fit ">
@@ -322,7 +322,7 @@ function Home() {
             </div>
           </div>
           <button
-            className="bg-[#378bba] p-1 px-2 rounded-md text-white font-bold ml-[200px]"
+            className="bg-[#378bba] p-1 px-2 rounded-md text-white font-bold mx-auto block"
             onClick={handleSubmit}
           >
             Submit
